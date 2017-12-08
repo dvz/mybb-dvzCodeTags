@@ -86,12 +86,6 @@ block=Bypass in block code
 everywhere=Bypass in block and inline code',
             'value'       => 'block',
         ],
-        'bypass_wordfilters_block_code' => [
-            'title'       => 'Bypass Word Filters in block code',
-            'description' => 'Choose whether Word Filters should be ignored in block code.',
-            'optionscode' => 'yesno',
-            'value'       => '1',
-        ],
         'inline_code_formatter' => [
             'title'       => 'Inline code formatter',
             'description' => 'Enter name of the inline code formatter included in plugin\'s directory.',
