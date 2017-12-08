@@ -14,5 +14,7 @@ MyCode blocks with optional language specified
 [/code]
 ```
 
+The plugin comes with inline and PrismJS-based block code formatters.
+
 **Requirements:**
 - PHP >= 7.1
