@@ -1,0 +1,3 @@
+.inline-code { padding: 1px; background: #FAFAFA; border: solid 1px #EEE; border-radius: 3px; word-wrap: break-word; font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace; font-size: 12px; }
+.block-code { overflow-y: auto; }
+.block-code, .block-code[class*="language-"] { border: solid 1px #EEE; max-height: 280px; font-size: 13px; white-space: pre-wrap; }
