@@ -45,7 +45,7 @@ function dvz_code_tags_info()
         'website'       => 'https://devilshakerz.com/',
         'author'        => 'Tomasz \'Devilshakerz\' Mlynski',
         'authorsite'    => 'https://devilshakerz.com/',
-        'version'       => 'dev',
+        'version'       => '1.0',
         'codename'      => 'dvz_code_tags',
         'compatibility' => '18*',
     ];
