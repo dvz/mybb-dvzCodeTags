@@ -64,17 +64,28 @@ class PrismjsCodeFormatter implements BlockCodeFormatter
         return $bodyHtml;
     }
 
-    public function getFormattedCode(array $match): ?string
+    public function getFormattedCode(array $match, ?int $placeholderCount = null): ?string
     {
         $content = \htmlspecialchars_uni($match['content']);
 
-        if (!empty($match['language'])) {
+        $heavy = (
+            $placeholderCount >= \dvzCodeTags\getSettingValue('prismjs_code_formatter_heavy_count') ||
+            strlen($match['content']) >= \dvzCodeTags\getSettingValue('prismjs_code_formatter_heavy_length')
+        );
+
+        if (!empty($match['language']) && !$heavy) {
             $language = \htmlspecialchars_uni($match['language']);
         } else {
             $language = 'none';
         }
 
-        $html = '<pre class="block-code line-numbers"><code class="language-' . $language . '">' . $content . '</code></pre>';
+        if ($heavy) {
+            $classes = 'block-code';
+        } else {
+            $classes = 'block-code line-numbers';
+        }
+
+        $html = '<pre class="' . $classes . '"><code class="language-' . $language . '">' . $content . '</code></pre>';
 
         return $html;
     }
@@ -113,6 +124,18 @@ plugins/toolbar/prism-toolbar.min.js sha256-o9SS5szYuFZ5Wsum35f22FU3h2hERtnmhNWA
 plugins/show-language/prism-show-language.min.js sha256-91764QHIzdvA69zwNYe4w+ckzdIE+C95BHMfPXnKEL0=
 plugins/line-numbers/prism-line-numbers.min.js sha256-hep5s8952MqR7Y79JYfCXZD6vQjVHs7sOu/ZGrs1OEQ=
 plugins/show-invisibles/prism-show-invisibles.min.js sha256-1baFoczEXwdtWBiZ6gbu7W1kn6XfPgKY4LkQQYNHTkM=',
+            ],
+            'prismjs_code_formatter_heavy_count' => [
+                'title'       => 'PrismJS code formatter: Heavy Count',
+                'description' => 'Enter number of code snippets in message above which some features will be disabled to improve performance.',
+                'optionscode' => 'numeric',
+                'value'       => '10',
+            ],
+            'prismjs_code_formatter_heavy_length' => [
+                'title'       => 'PrismJS code formatter: Heavy Length',
+                'description' => 'Enter code length in number of characters above which some features will be disabled to improve performance.',
+                'optionscode' => 'numeric',
+                'value'       => '50000',
             ],
         ];
     }

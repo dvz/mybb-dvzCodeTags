@@ -14,7 +14,7 @@ class DefaultInlineCodeFormatter implements InlineCodeFormatter
         return null;
     }
 
-    public function getFormattedCode(array $match): ?string
+    public function getFormattedCode(array $match, ?int $placeholderCount = null): ?string
     {
         $html = '<code class="inline-code">' . \htmlspecialchars_uni($match['content']) . '</code>';
 

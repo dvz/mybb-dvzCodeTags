@@ -18,8 +18,10 @@ function getMessageWithPlaceholders(string $message, array $matches, array &$pla
 
 function getFormattedMessageFromPlaceholders(string $message, array $placeholders): string
 {
+    $placeholderCount = count($placeholders);
+
     foreach ($placeholders as $index => $match) {
-        $replacement = \dvzCodeTags\Formatting\getFormattedOutput($match);
+        $replacement = \dvzCodeTags\Formatting\getFormattedOutput($match, $placeholderCount);
 
         $message = str_replace('{' . \dvzCodeTags\PARSER_EXCLUSIVE_CHAR . 'DVZ_CT#' . $index . '}', $replacement, $message);
     }
@@ -44,14 +46,12 @@ function replaceMatchesInMessage(string $message, array $matches): string
     return $message;
 }
 
-function getFormattedOutput(array $match): string
+function getFormattedOutput(array $match, ?int $placeholderCount = null): string
 {
-    global $mybb;
-
     // create/get formatter instance for specified type
     $codeFormatterInstance = \dvzCodeTags\getCodeFormatterInstance($match['type'], true);
 
-    return $codeFormatterInstance->getFormattedCode($match);
+    $html = $codeFormatterInstance->getFormattedCode($match, $placeholderCount);
 
     return $html;
 }
