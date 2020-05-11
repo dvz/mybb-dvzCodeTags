@@ -29,3 +29,14 @@ if (Prism.plugins.toolbar !== undefined) {
 		return button;
 	});
 }
+
+let highlightDeferredCode = function () {
+	if (window.getSelection().toString().length === 0) {
+		Prism.highlightElement(this.querySelector('code'));
+		this.removeAttribute('data-deferred');
+		this.removeEventListener('click', highlightDeferredCode);
+	}
+};
+
+document.querySelectorAll('.block-code:not([data-deferred])').forEach(e => Prism.highlightElement(e.querySelector('code')));
+document.querySelectorAll('.block-code[data-deferred]').forEach(e => e.addEventListener('click', highlightDeferredCode));

@@ -42,50 +42,66 @@ class PrismjsCodeFormatter implements BlockCodeFormatter
         foreach ($jsFiles as $file) {
             $data = explode(' ', $file);
 
-            if (isset($data[1])) {
-                $additionalAttributes = ' integrity="' . $data[1] . '" crossorigin="anonymous"';
-            } else {
-                $additionalAttributes = null;
+            $attributes = [];
+
+            $attributes[] = 'src="' . $directories['resources'] . $data[0] . '"';
+
+            if (in_array($data[0], ['prism.min.js', 'prism.js'])) {
+                $attributes[] = 'data-manual';
             }
 
-            $optionsJson = json_encode([
-                'components_directory' => \htmlspecialchars_uni($directories['components']),
-            ]);
+            if (isset($data[1])) {
+                $attributes[] = 'integrity="' . $data[1] . '"';
+                $attributes[] = 'crossorigin="anonymous"';
+            }
 
-            $langJson = json_encode([
-                'dvz_code_tags_select_all' => $lang->dvz_code_tags_select_all,
-            ]);
-
-            $bodyHtml .= '<script src="' . $directories['resources'] . $data[0] . '"' . $additionalAttributes . '></script>' . PHP_EOL;
+            $bodyHtml .= '<script ' . implode(' ', $attributes) . '></script>' . PHP_EOL;
         }
+
+        $optionsJson = json_encode([
+            'components_directory' => \htmlspecialchars_uni($directories['components']),
+        ]);
+
+        $langJson = json_encode([
+            'dvz_code_tags_select_all' => $lang->dvz_code_tags_select_all,
+        ]);
 
         $bodyHtml .= '<script src="' . $mybb->asset_url . '/jscripts/dvz_code_tags/prismjsCodeFormatter.js" data-options=\'' . \addcslashes($optionsJson, '\'') .'\' data-lang=\'' . \addcslashes($langJson, '\'') . '\'></script>' . PHP_EOL;
 
         return $bodyHtml;
     }
 
-    public function getFormattedCode(array $match, ?int $placeholderCount = null): ?string
+    public function getFormattedCode(array $match, ?int $placeholderCount = null, ?int $placeholderNo = null, ?int $cumulativeContentLength = null): ?string
     {
         $content = \htmlspecialchars_uni($match['content']);
 
+        $attributes = [];
+        $classes = [];
+
+        $classes[] = 'block-code';
+        $classes[] = 'line-numbers';
+        $classes[] = 'language-none';
+
+        $length = strlen($match['content']);
+
         $heavy = (
-            $placeholderCount >= \dvzCodeTags\getSettingValue('prismjs_code_formatter_heavy_count') ||
-            strlen($match['content']) >= \dvzCodeTags\getSettingValue('prismjs_code_formatter_heavy_length')
+            $placeholderNo > \dvzCodeTags\getSettingValue('prismjs_code_formatter_heavy_count') ||
+            $length > \dvzCodeTags\getSettingValue('prismjs_code_formatter_heavy_length')
         );
 
-        if (!empty($match['language']) && !$heavy) {
+        if (!empty($match['language'])) {
             $language = \htmlspecialchars_uni($match['language']);
         } else {
             $language = 'none';
         }
 
         if ($heavy) {
-            $classes = 'block-code';
-        } else {
-            $classes = 'block-code line-numbers';
+            $attributes[] = 'data-deferred';
         }
 
-        $html = '<pre class="' . $classes . '"><code class="language-' . $language . '">' . $content . '</code></pre>';
+        $attributes[] = 'class="' . implode(' ', $classes) . '"';
+
+        $html = '<pre ' . implode(' ', $attributes) . '><code class="language-' . $language . '">' . $content . '</code></pre>';
 
         return $html;
     }
@@ -129,13 +145,13 @@ plugins/show-invisibles/prism-show-invisibles.min.js sha256-1baFoczEXwdtWBiZ6gbu
                 'title'       => 'PrismJS code formatter: Heavy Count',
                 'description' => 'Enter number of code snippets in message above which some features will be disabled to improve performance.',
                 'optionscode' => 'numeric',
-                'value'       => '10',
+                'value'       => '25',
             ],
             'prismjs_code_formatter_heavy_length' => [
                 'title'       => 'PrismJS code formatter: Heavy Length',
                 'description' => 'Enter code length in number of characters above which some features will be disabled to improve performance.',
                 'optionscode' => 'numeric',
-                'value'       => '50000',
+                'value'       => '2500',
             ],
         ];
     }
