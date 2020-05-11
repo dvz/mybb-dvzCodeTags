@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2017-2019, Tomasz 'Devilshakerz' Mlynski [devilshakerz.com]
+ * Copyright (c) 2017-2020, Tomasz 'Devilshakerz' Mlynski [devilshakerz.com]
  *
  * Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby
  * granted, provided that the above copyright notice and this permission notice appear in all copies.
@@ -45,7 +45,7 @@ function dvz_code_tags_info()
         'website'       => 'https://devilshakerz.com/',
         'author'        => 'Tomasz \'Devilshakerz\' Mlynski',
         'authorsite'    => 'https://devilshakerz.com/',
-        'version'       => '1.0.2',
+        'version'       => '1.0.3',
         'codename'      => 'dvz_code_tags',
         'compatibility' => '18*',
     ];
