@@ -50,7 +50,7 @@ function getAvailableCodeFormatterNamesByType(): array
         'block' => [],
     ];
 
-    $formatters = \dvzCodeTags\getAvailableCodeFormatters();
+    $formatters = \dvzCodeTags\getAvailableCodeFormatterNames();
 
     $directory = MYBB_ROOT . 'inc/plugins/dvz_code_tags/codeFormatters/';
 
@@ -59,13 +59,13 @@ function getAvailableCodeFormatterNamesByType(): array
 
         require_once $directory . $className . '.php';
 
-        $interfaces = class_implements($className);
+        $interfaces = class_implements('\dvzCodeTags\Formatting\\' . $className);
 
-        if (in_array(\dvzCodeTags\InlineCodeFormatter, $interfaces)) {
+        if (in_array('dvzCodeTags\Formatting\InlineCodeFormatter', $interfaces)) {
             $formatterNamesByType['inline'][] = $formatterName;
         }
 
-        if (in_array(\dvzCodeTags\BlockCodeFormatter, $interfaces)) {
+        if (in_array('dvzCodeTags\Formatting\BlockCodeFormatter', $interfaces)) {
             $formatterNamesByType['block'][] = $formatterName;
         }
     }

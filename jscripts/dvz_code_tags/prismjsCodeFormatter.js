@@ -1,36 +1,31 @@
-var prismjsCodeFormatter = {};
-
-$.each(document.currentScript.attributes, function() {
-    if (this.specified && this.name == 'data-options') {
-        prismjsCodeFormatter.options = JSON.parse(this.value);
-    } else if (this.specified && this.name == 'data-lang') {
-        prismjsCodeFormatter.lang = JSON.parse(this.value);
-    }
-});
+let prismjsCodeFormatter = {
+	options: JSON.parse(document.currentScript.dataset.options),
+	lang: JSON.parse(document.currentScript.dataset.lang),
+};
 
 if (Prism.plugins.autoloader !== undefined) {
     Prism.plugins.autoloader.languages_path = prismjsCodeFormatter.options.components_directory;
 }
 
 if (Prism.plugins.toolbar !== undefined) {
-    Prism.plugins.toolbar.registerButton("select-code", function(env) {
-    	var button = document.createElement("button");
-    	button.innerHTML = prismjsCodeFormatter.lang.dvz_code_tags_select_all;
+	Prism.plugins.toolbar.registerButton("select-code", function (env) {
+		let button = document.createElement("button");
+		button.innerHTML = prismjsCodeFormatter.lang.dvz_code_tags_select_all;
 
-    	button.addEventListener("click", function () {
-    		if (document.body.createTextRange) {
-    			var range = document.body.createTextRange();
-    			range.moveToElementText(env.element);
-    			range.select();
-    		} else if (window.getSelection) {
-    			var selection = window.getSelection();
-    			var range = document.createRange();
-    			range.selectNodeContents(env.element);
-    			selection.removeAllRanges();
-    			selection.addRange(range);
-    		}
-    	});
+		button.addEventListener("click", function () {
+			if (document.body.createTextRange) {
+				let range = document.body.createTextRange();
+				range.moveToElementText(env.element);
+				range.select();
+			} else if (window.getSelection) {
+				let selection = window.getSelection();
+				let range = document.createRange();
+				range.selectNodeContents(env.element);
+				selection.removeAllRanges();
+				selection.addRange(range);
+			}
+		});
 
-    	return button;
-    });
+		return button;
+	});
 }
