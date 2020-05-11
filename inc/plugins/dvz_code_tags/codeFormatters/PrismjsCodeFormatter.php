@@ -97,31 +97,31 @@ class PrismjsCodeFormatter implements BlockCodeFormatter
                 'title'       => 'PrismJS code formatter: Resources directory',
                 'description' => 'Enter path to the resources directory. <code>{ASSET_URL}</code> will be replaced with MyBB\'s static files path.',
                 'optionscode' => 'text',
-                'value'       => 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/',
+                'value'       => 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/',
             ],
             'prismjs_code_formatter_components_directory' => [
                 'title'       => 'PrismJS code formatter: Components directory',
                 'description' => 'Enter path to the components directory. <code>{ASSET_URL}</code> will be replaced with MyBB\'s static files path.',
                 'optionscode' => 'text',
-                'value'       => 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/',
+                'value'       => 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/',
             ],
             'prismjs_code_formatter_css_files' => [
                 'title'       => 'PrismJS code formatter: CSS files',
                 'description' => 'Enter stylesheet files to be included in separate lines. Optional SRI checksums can be added with preceding whitespace.',
                 'optionscode' => 'textarea',
-                'value'       => 'themes/prism.min.css sha256-77qGXu2p8NpfcBpTjw4jsMeQnz0vyh74f5do0cWjQ/Q=
+                'value'       => 'themes/prism.min.css sha256-cuvic28gVvjQIo3Q4hnRpQSNB0aMw3C+kjkR0i+hrWg=
 plugins/line-numbers/prism-line-numbers.min.css sha256-Afz2ZJtXw+OuaPX10lZHY7fN1+FuTE/KdCs+j7WZTGc=
 plugins/show-invisibles/prism-show-invisibles.min.css sha256-nOfkEPu/TzBvIxN8D/vW8weOUczzDbxRjgik/hA2hBI=
-plugins/toolbar/prism-toolbar.min.css sha256-xY7/SUa769r0PZ1ytZPFj2WqnOZYaYSKbX1hVTiQlcA=',
+plugins/toolbar/prism-toolbar.min.css sha256-P45OhhEWm49G8sadt2n5rDaWLa3xZbDOQhJliuaojH0=',
             ],
             'prismjs_code_formatter_javascript_files' => [
                 'title'       => 'PrismJS code formatter: JavaScript files',
                 'description' => 'Enter JavaScript files to be included in separate lines. Optional SRI checksums can be added with preceding whitespace.',
                 'optionscode' => 'textarea',
-                'value'       =>'prism.min.js sha256-NFZVyNmS1YlmiklazBA+TALYJlJtZj/y/i/oADk6CVE=
-plugins/autoloader/prism-autoloader.min.js sha256-9O/uwV3X6y7CHvgfS2Gdex8+wzQAZT2XG2U+nDkIpT8=
-plugins/toolbar/prism-toolbar.min.js sha256-o9SS5szYuFZ5Wsum35f22FU3h2hERtnmhNWAhyAavFE=
-plugins/show-language/prism-show-language.min.js sha256-91764QHIzdvA69zwNYe4w+ckzdIE+C95BHMfPXnKEL0=
+                'value'       =>'prism.min.js sha256-3teItwIfMuVB74Alnxw/y5HAZ2irOsCULFff3EgbtEs=
+plugins/autoloader/prism-autoloader.min.js sha256-3S2PESHNt0YNL65z57WuHPHIv12fibpBDXepyCGHftw=
+plugins/toolbar/prism-toolbar.min.js sha256-7I/IdbPM17QdjqRNwpVYj4iDGAQw7ZFHy9RSSU1yvLE=
+plugins/show-language/prism-show-language.min.js sha256-0bmqeC8t2qjXEHcAn8OQJOLGzK0jE1wjepM2DvpS0xg=
 plugins/line-numbers/prism-line-numbers.min.js sha256-hep5s8952MqR7Y79JYfCXZD6vQjVHs7sOu/ZGrs1OEQ=
 plugins/show-invisibles/prism-show-invisibles.min.js sha256-1baFoczEXwdtWBiZ6gbu7W1kn6XfPgKY4LkQQYNHTkM=',
             ],
