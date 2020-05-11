@@ -6,7 +6,7 @@ function getInlineCodeMatches(string $message): array
 {
     $matches = [];
 
-    $regex = '/(`+)[ ]*(.+?)[ ]*(?<!`)\1(?!`)/u';
+    $regex = '/(`+)[ ]*([^\n\0]+?)[ ]*(?<!`)\1(?!`)/u';
 
     preg_match_all($regex, $message, $regexMatchSets, PREG_SET_ORDER | PREG_OFFSET_CAPTURE);
 
@@ -27,7 +27,7 @@ function getFencedCodeMatches(string $message): array
 {
     $matches = [];
 
-    $regex = '/(?:^|\r|\n|\r\n)(`{3,})([a-zA-Z0-9-]+)?(?:\r|\n|\r\n)(.+?)\1/su';
+    $regex = '/(?:^|\r|\n|\r\n)(`{3,})([a-zA-Z0-9-]+)?(?:\r|\n|\r\n)([^\0]+?)\1/su';
 
     preg_match_all($regex, $message, $regexMatchSets, PREG_SET_ORDER | PREG_OFFSET_CAPTURE);
 
@@ -49,7 +49,7 @@ function getMycodeCodeMatches(string $message): array
 {
     $matches = [];
 
-    $regex = '/\[(code|php)(=([a-zA-Z0-9-]+))?\](?:\r|\n|\r\n)?(.*?)\[\/\1\](\r\n?|\n?)/isu';
+    $regex = '/\[(code|php)(=([a-zA-Z0-9-]+))?\](?:\r|\n|\r\n)?([^\0]*?)\[\/\1\](\r\n?|\n?)/isu';
 
     preg_match_all($regex, $message, $regexMatchSets, PREG_SET_ORDER | PREG_OFFSET_CAPTURE);
 
