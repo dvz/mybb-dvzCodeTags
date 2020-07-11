@@ -8,7 +8,7 @@ function getMessageWithPlaceholders(string $message, array $matches, array &$pla
         $placeholderId = count($placeholders);
         $placeholders[] = $match;
 
-        $match['replacement'] = '{' . \dvzCodeTags\PARSER_EXCLUSIVE_CHAR . 'DVZ_CT#' . $placeholderId . '}';
+        $match['replacement'] = ' {' . \dvzCodeTags\PARSER_EXCLUSIVE_CHAR . 'DVZ_CT#' . $placeholderId . '}';
     }
 
     $message = \dvzCodeTags\Formatting\replaceMatchesInMessage($message, $matches);
@@ -29,7 +29,7 @@ function getFormattedMessageFromPlaceholders(string $message, array $placeholder
 
         $replacement = \dvzCodeTags\Formatting\getFormattedOutput($match, $placeholderCount, $placeholderNo++, $cumulativeContentLength);
 
-        $message = str_replace('{' . \dvzCodeTags\PARSER_EXCLUSIVE_CHAR . 'DVZ_CT#' . $index . '}', $replacement, $message);
+        $message = str_replace(' {' . \dvzCodeTags\PARSER_EXCLUSIVE_CHAR . 'DVZ_CT#' . $index . '}', $replacement, $message);
     }
 
     return $message;
