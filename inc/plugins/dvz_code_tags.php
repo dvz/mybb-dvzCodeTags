@@ -197,7 +197,7 @@ function dvz_code_tags_admin_load_pluginlibrary()
         flash_message($lang->dvz_code_tags_admin_pluginlibrary_missing, 'error');
 
         admin_redirect('index.php?module=config-plugins');
-    } elseif (!$PL) {
+    } elseif (!isset($GLOBALS['PL'])) {
         require_once PLUGINLIBRARY;
     }
 }

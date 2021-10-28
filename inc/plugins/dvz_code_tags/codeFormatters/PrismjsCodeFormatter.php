@@ -106,7 +106,7 @@ class PrismjsCodeFormatter implements BlockCodeFormatter
         return $html;
     }
 
-    public function getSettingDefinitions(): ?array
+    public static function getSettingDefinitions(): ?array
     {
         return [
             'prismjs_code_formatter_resources_directory' => [

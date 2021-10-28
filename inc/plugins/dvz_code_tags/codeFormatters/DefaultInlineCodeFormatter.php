@@ -21,7 +21,7 @@ class DefaultInlineCodeFormatter implements InlineCodeFormatter
         return $html;
     }
 
-    public function getSettingDefinitions(): ?array
+    public static function getSettingDefinitions(): ?array
     {
         return [];
     }
