@@ -113,33 +113,33 @@ class PrismjsCodeFormatter implements BlockCodeFormatter
                 'title'       => 'PrismJS code formatter: Resources directory',
                 'description' => 'Enter path to the resources directory. <code>{ASSET_URL}</code> will be replaced with MyBB\'s static files path.',
                 'optionscode' => 'text',
-                'value'       => 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/',
+                'value'       => 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/',
             ],
             'prismjs_code_formatter_components_directory' => [
                 'title'       => 'PrismJS code formatter: Components directory',
                 'description' => 'Enter path to the components directory. <code>{ASSET_URL}</code> will be replaced with MyBB\'s static files path.',
                 'optionscode' => 'text',
-                'value'       => 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/',
+                'value'       => 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/',
             ],
             'prismjs_code_formatter_css_files' => [
                 'title'       => 'PrismJS code formatter: CSS files',
                 'description' => 'Enter stylesheet files to be included in separate lines. Optional SRI checksums can be added with preceding whitespace.',
                 'optionscode' => 'textarea',
-                'value'       => 'themes/prism.min.css sha256-cuvic28gVvjQIo3Q4hnRpQSNB0aMw3C+kjkR0i+hrWg=
-plugins/line-numbers/prism-line-numbers.min.css sha256-Afz2ZJtXw+OuaPX10lZHY7fN1+FuTE/KdCs+j7WZTGc=
-plugins/show-invisibles/prism-show-invisibles.min.css sha256-nOfkEPu/TzBvIxN8D/vW8weOUczzDbxRjgik/hA2hBI=
-plugins/toolbar/prism-toolbar.min.css sha256-P45OhhEWm49G8sadt2n5rDaWLa3xZbDOQhJliuaojH0=',
+                'value'       => 'themes/prism.min.css sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==
+plugins/line-numbers/prism-line-numbers.min.css sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==
+plugins/show-invisibles/prism-show-invisibles.min.css sha512-y56hHawsGNNkestAKyhMKxX25fF3QjUkrUESd4qYTPlKqz1s890GRkp95U7vj3tS1Qr/NCYE3bbYOq9MzAXI/A==
+plugins/toolbar/prism-toolbar.min.css sha512-ycl7dIZ0VJ5535/dzskAMTwOI6OoTNZ3PeD+tfckvYqMmAzaEwQfJHqJTSqcV2iQeJnp5XxnFy5jKotibstp7A==',
             ],
             'prismjs_code_formatter_javascript_files' => [
                 'title'       => 'PrismJS code formatter: JavaScript files',
                 'description' => 'Enter JavaScript files to be included in separate lines. Optional SRI checksums can be added with preceding whitespace.',
                 'optionscode' => 'textarea',
-                'value'       =>'prism.min.js sha256-3teItwIfMuVB74Alnxw/y5HAZ2irOsCULFff3EgbtEs=
-plugins/autoloader/prism-autoloader.min.js sha256-3S2PESHNt0YNL65z57WuHPHIv12fibpBDXepyCGHftw=
-plugins/toolbar/prism-toolbar.min.js sha256-7I/IdbPM17QdjqRNwpVYj4iDGAQw7ZFHy9RSSU1yvLE=
-plugins/show-language/prism-show-language.min.js sha256-0bmqeC8t2qjXEHcAn8OQJOLGzK0jE1wjepM2DvpS0xg=
-plugins/line-numbers/prism-line-numbers.min.js sha256-hep5s8952MqR7Y79JYfCXZD6vQjVHs7sOu/ZGrs1OEQ=
-plugins/show-invisibles/prism-show-invisibles.min.js sha256-1baFoczEXwdtWBiZ6gbu7W1kn6XfPgKY4LkQQYNHTkM=',
+                'value'       =>'prism.min.js sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==
+plugins/autoloader/prism-autoloader.min.js sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==
+plugins/toolbar/prism-toolbar.min.js sha512-YrvgEHAi5/3o2OT+/vh1z19oJXk/Kk0qdVKbjEFl9VRmcLTaWRYzVziZCvoGpJ2TrnV7rB8pnJcz1ioVJjgw2A==
+plugins/show-language/prism-show-language.min.js sha512-teI3HjGzxHZz40l8V9ViL7ga18moIgswEgojE/Zl8jhAPhwkZI5/Y+RcIi8yMfA0TW0XHnfOpcmdm9+xj8atow==
+plugins/line-numbers/prism-line-numbers.min.js sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==
+plugins/show-invisibles/prism-show-invisibles.min.js sha512-PVMnmOnCm6A2IHP8RMGclS5lEYaJyzpYkov5bfQs7MHYibBbh0JqE1/D3XQ9AkQCBzcsVmntztTnI7VOwOulXg==',
             ],
             'prismjs_code_formatter_heavy_count' => [
                 'title'       => 'PrismJS code formatter: Heavy Count',
